@@ -20,6 +20,30 @@
 #define KEYS_R 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29
 #define THUMBS 30 31 32 33 34 35  
 
+&sk {
+  release-after-ms = <600>;
+};
+
+&sl {
+  ignore-modifiers;
+};
+
+&mt {
+  flavor = "tap-preferred";
+};
+
+&lt {
+  flavor = "balanced";
+  tapping-term-ms = <200>;
+  quick-tap-ms = <150>;
+};
+
+&caps_word {
+  /delete-property/ ignore-modifiers;
+};
+
+
+
 / {
   trackball_listener {
     compatible = "zmk,input-listener";
@@ -107,28 +131,6 @@
     };
   };
 
-  &sk {
-    release-after-ms = <600>;
-  };
-
-  &sl {
-    ignore-modifiers;
-  };
-
-  &mt {
-    flavor = "tap-preferred";
-  };
-
-  &lt {
-    flavor = "balanced";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <150>;
-  };
-
-  &caps_word {
-    /delete-property/ ignore-modifiers;
-  };
-
   chosen {
     zmk,matrix_transform = &five_column_transform;
   };
@@ -186,7 +188,7 @@
         &kp ESCAPE    &kp Q     &kp W     &kp E     &kp R       &none      &none      &none      &none         &none     
         &kp LCTRL     &kp A     &kp S     &kp D     &kp F       &none      &mkp MB1   &mkp MB2   &mkp MB3      &none    
         &kp LSHIFT    &kp Z     &kp X     &kp C     &kp V       &kp N1     &kp N2     &kp N3     &kp N4        &kp N5
-                                &kp LALT  &kp SPACE &kp M       &kp T    &kp B                      
+        &kp LALT  &kp SPACE &kp M       &kp T    &kp B                      
       >;
     };
   };
