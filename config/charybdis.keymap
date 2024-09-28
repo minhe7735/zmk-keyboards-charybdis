@@ -165,9 +165,9 @@
 
     Num {
       bindings = <
-        &none    &kp N7     &kp N8          &kp N9           &none            &none            &kp PG_UP          &kp UP             &kp PG_DN          &none          
-        X_LM     &kp LGUI   &hml LALT N4    &hml LSHFT N5    &hml LCTRL N6    &none            &none              &hmr RCTRL LEFT    &hmr RSHFT DOWN    &hmr RALT RIGHT    &kp RGUI     
-        X_LB     &none      &kp N1          &kp N2           &kp N3           &kp LC(MINUS)  &kp LC(EQUAL)    &kp HOME           &trans                &kp END            &none          
+        &none      &kp N7          &kp N8           &kp N9           &none            &none              &kp PG_UP          &kp UP             &kp PG_DN          &none          
+        &kp LGUI   &hml LALT N4    &hml LSHFT N5    &hml LCTRL N6    &none            &none              &hmr RCTRL LEFT    &hmr RSHFT DOWN    &hmr RALT RIGHT    &kp RGUI     
+        &none      &kp N1          &kp N2           &kp N3           &kp LC(MINUS)    &kp LC(EQUAL)      &kp HOME           &trans             &kp END            &none          
         &kp DOT         &kp N0           &kp LS(LC(LEFT_ALT))    &trans              &none
       >;
     };
