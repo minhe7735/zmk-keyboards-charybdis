@@ -143,7 +143,7 @@
         &kp FSLH       &kp W          &kp F           &kp P           &kp B             &kp J    &kp L           &kp U           &kp Y          &kp SEMI
         &hml LGUI A    &hml LALT R    &hml LSHFT S    &hml LCTRL T    &kp G             &kp M    &hmr RCTRL N    &hmr RSHFT E    &hmr RALT I    &hmr LGUI O
         &kp Z          &mt LC(X) X    &mt LC(C) C     &kp D           &mt LC(V) V       &kp K    &kp H           &kp COMMA       &kp DOT        &kp Q
-        pf            &kp LGUI        &smart_shft     &lt SYM SPACE     &lt NUM BACKSPACE        &mt LS(LC(LEFT_ALT)) ENTER
+                       &kp LGUI       &smart_shft     &lt SYM SPACE     &lt NUM BACKSPACE        &mt LS(LC(LEFT_ALT)) ENTER
       >;
     };
 
