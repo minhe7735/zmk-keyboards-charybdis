@@ -109,25 +109,25 @@
 
   &sk {
     release-after-ms = <600>;
-  }
+  };
 
   &sl {
     ignore-modifiers;
-  }
+  };
 
   &mt {
     flavor = "tap-preferred";
-  }
+  };
 
   &lt {
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <150>;
-  }
+  };
 
   &caps_word {
     /delete-property/ ignore-modifiers;
-  }
+  };
 
   chosen {
     zmk,matrix_transform = &five_column_transform;
