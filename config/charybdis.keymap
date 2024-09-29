@@ -12,7 +12,7 @@
 #define SYM 2
 #define NUM 3
 #define FN 4
-#define GENSHIN 
+#define GENSHIN 5 
 
 #define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24  
 #define KEYS_R 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29
@@ -20,6 +20,7 @@
 
 &sk {
   release-after-ms = <600>;
+  quick-release;
 };
 
 &sl {
@@ -33,7 +34,7 @@
 &lt {
   flavor = "balanced";
   tapping-term-ms = <200>;
-  quick-tap-ms = <150>;
+  quick-tap-ms = <175>;
 };
 
 &caps_word {
@@ -58,77 +59,37 @@
     };
   };
 
-        /* input config for mouse move mode on default layer (DEF & MOUSE) */
-        tb0_mmv_ibl {
-                /* new forked compatible name */
-                compatible = "zmk,input-behavior-listener";
-                
-                /* the input point device alias */
-                device = <&vtrackball>;
+  /* input config for mouse move mode on default layer (DEF & MOUSE) */
+  tb0_mmv_ibl {
+    /* new forked compatible name */
+    compatible = "zmk,input-behavior-listener";
+    
+    /* the input point device alias */
+    device = <&vtrackball>;
 
-                /* only enable in default layer (DEF) & mouse key layer (MOUSE) */
-                layers = <DEF MOUSE>;
+    /* only enable in default layer (DEF) & mouse key layer (MOUSE) */
+    layers = <DEF MOUSE>;
 
-                /* event code value to override raw input event */
-                /* designed for switching to mouse scroll, xy-swap, precise-mode+, etc */
-                /* NOTE: only apply input-code overriding for INPUT_EV_REL */
-                evt-type = <INPUT_EV_REL>;
-                x-input-code = <INPUT_REL_X>;
-                y-input-code = <INPUT_REL_Y>;
-                scale-multiplier = <1>;
-                scale-divisor = <4>;
+    /* event code value to override raw input event */
+    /* designed for switching to mouse scroll, xy-swap, precise-mode+, etc */
+    /* NOTE: only apply input-code overriding for INPUT_EV_REL */
+    evt-type = <INPUT_EV_REL>;
+    x-input-code = <INPUT_REL_X>;
+    y-input-code = <INPUT_REL_Y>;
+    scale-multiplier = <1>;
+    scale-divisor = <4>;
 
-                /* bind a behavior to auto activate MOUSE layer for &mkp */
-                bindings = <&ib_tog_layer MOUSE>;
+    /* bind a behavior to auto activate MOUSE layer for &mkp */
+    bindings = <&ib_tog_layer MOUSE>;
+  };
 
-                /* align to CCW 90 degree */
-                // rotate-deg = <270>;
-                /* NOTE 1: This settings do not compitable with y-invert and x-invert */
-                /* NOTE 2: Floating point computation requires alot of ram. */
-                /*         This feature will cuase stackover flow with CONFIG_ZMK_USB_LOGGING=y */
-        };
 
-        /* input config for mouse scroll mode on momentary mouse scoll layer (SYM) */
-        // tb0_msl_ibl {
-        //         compatible = "zmk,input-behavior-listener";
-        //         device = <&vtrackball>;
-        //         layers = <SYM>;
-        //         evt-type = <INPUT_EV_REL>;
-                
-        //         /* slienting x-axis with alt event code */
-        //         x-input-code = <INPUT_REL_MISC>;
-        //         y-input-code = <INPUT_REL_WHEEL>;
-
-        //         /* invent scrolling direction */
-        //         y-invert;
-
-        //         /* align to CCW 90 degree */
-        //         rotate-deg = <270>;
-        //         /* NOTE 1: This settings do not compitable with y-invert and x-invert */
-        //         /* NOTE 2: Floating point computation requires alot of ram. */
-        //         /*         This feature will cuase stackove flow with CONFIG_ZMK_USB_LOGGING=y */
-
-        //         /* bind a behavior to down scaling input value to (1/8) */
-        //         /* NOTE: This behavior memorizes recent pending displacement, it is different to scale-divisor. */
-        //         /*       The delta value is accumlated until result >= 1 after cast. */
-        //         /*       The scrolling will be smoother and allow precise scrolling */
-        //         bindings = <&ib_wheel_scaler 1 8>;
-        // };
-
-        /* adjust cooldown waiting period for mouse key layer (MSK) after activated */
-        ib_tog_layer: ib_tog_layer {
-                compatible = "zmk,input-behavior-tog-layer";
-                #binding-cells = <1>;
-                time-to-live-ms = <1000>;
-        };
-
-        /* define a resolution down scaler only for INPUT_REL_WHEEL */
-        // ib_wheel_scaler: ib_wheel_scaler {
-        //         compatible = "zmk,input-behavior-scaler";
-        //         #binding-cells = <2>;
-        //         evt-type = <INPUT_EV_REL>;
-        //         input-code = <INPUT_REL_WHEEL>;
-        // };
+  /* adjust cooldown waiting period for mouse key layer (MSK) after activated */
+  ib_tog_layer: ib_tog_layer {
+          compatible = "zmk,input-behavior-tog-layer";
+          #binding-cells = <1>;
+          time-to-live-ms = <1000>;
+  };
 
   xy_scaler: xy_scaler {
     compatible = "zmk,input-processor-scaler";
@@ -172,7 +133,8 @@
       #binding-cells = <2>;
       flavor = "balanced";
       tapping-term-ms = <280>;
-      quick-tap-ms = <150>;
+      quick-tap-ms = <175>;
+      require-prior-idle-ms = <150>;
       hold-trigger-key-positions = <KEYS_L THUMBS>;
       hold-trigger-on-release;
       bindings =
@@ -185,7 +147,8 @@
       #binding-cells = <2>;
       flavor = "balanced";
       tapping-term-ms = <280>;
-      quick-tap-ms = <150>;
+      quick-tap-ms = <175>;
+      require-prior-idle-ms = <150>;
       hold-trigger-key-positions = <KEYS_R THUMBS>;
       hold-trigger-on-release;
       bindings =
@@ -201,6 +164,45 @@
     };
   };
 
+  combos {
+    compatible = "zmk, combos";
+    combo_normal {
+      timeout-ms = <20>;
+      key-positions = <7 8>;
+      bindings = <&to DEF>;
+    };
+
+    combo_fn {
+      timeout-ms = <20>;
+      key-positions = <27 28>;
+      bindings = <&to FN>;
+    };
+    combo_genshin {
+      timeout-ms = <20>;
+      key-positions = <5 9>;
+      bindings = <&to GENSHIN>;
+    };
+    combo_tab {
+      timeout-ms = <20>;
+      key-positions = <1 2>;
+      bindings = <&kp ESCAPE>;
+    };
+    combo_esc {
+      timeout-ms = <20>;
+      key-positions = <3 4>;
+      bindings = <&kp TAB>;
+    };
+    combo_cdel {
+      timeout-ms = <20>;
+      key-positions = <11 12>;
+      bindings = <&kp LC(BACKSPACE)>;
+    };
+    combo_unlock {
+      timeout-ms = <20>;
+      key-positions = <0 4>;
+      bindings = <&studio_unlock>;
+    };
+  }
   chosen {
     zmk,matrix_transform = &five_column_transform;
   };
@@ -213,7 +215,7 @@
         &kp FSLH       &kp W          &kp F           &kp P           &kp B             &kp J    &kp L           &kp U           &kp Y          &kp SEMI
         &hml LGUI A    &hml LALT R    &hml LSHFT S    &hml LCTRL T    &kp G             &kp M    &hmr RCTRL N    &hmr RSHFT E    &hmr RALT I    &hmr LGUI O
         &kp Z          &mt LC(X) X    &mt LC(C) C     &kp D           &mt LC(V) V       &kp K    &kp H           &kp COMMA       &kp DOT        &kp Q
-                       &kp LGUI       &smart_shft     &lt SYM SPACE     &lt NUM BACKSPACE        &mt LS(LC(LEFT_ALT)) ENTER
+                       &mt LGUI ESCAPE      &smart_shft     &lt SYM SPACE     &lt NUM BACKSPACE        &mt LS(LC(LEFT_ALT)) ENTER
       >;
     };
 
