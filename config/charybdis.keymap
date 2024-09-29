@@ -77,7 +77,7 @@
     x-input-code = <INPUT_REL_X>;
     y-input-code = <INPUT_REL_Y>;
     scale-multiplier = <1>;
-    scale-divisor = <4>;
+    scale-divisor = <1>;
 
     /* bind a behavior to auto activate MOUSE layer for &mkp */
     bindings = <&ib_tog_layer MOUSE>;
