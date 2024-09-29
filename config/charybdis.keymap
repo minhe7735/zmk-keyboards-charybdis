@@ -202,7 +202,7 @@
       key-positions = <0 4>;
       bindings = <&studio_unlock>;
     };
-  }
+  };
   chosen {
     zmk,matrix_transform = &five_column_transform;
   };
