@@ -64,7 +64,7 @@
                 compatible = "zmk,input-behavior-listener";
                 
                 /* the input point device alias */
-                device = <&pd0>;
+                device = <&vtrackball>;
 
                 /* only enable in default layer (DEF) & mouse key layer (MOUSE) */
                 layers = <DEF MOUSE>;
@@ -91,7 +91,7 @@
         /* input config for mouse scroll mode on momentary mouse scoll layer (SYM) */
         tb0_msl_ibl {
                 compatible = "zmk,input-behavior-listener";
-                device = <&pd0>;
+                device = <&vtrackball>;
                 layers = <SYM>;
                 evt-type = <INPUT_EV_REL>;
                 
@@ -124,7 +124,7 @@
 
         /* define a resolution down scaler only for INPUT_REL_WHEEL */
         ib_wheel_scaler: ib_wheel_scaler {
-                compatible = "zmk,input-behavior-scaler";
+                compatible = "zmk,input-behavior-scaler";nf
                 #binding-cells = <2>;
                 evt-type = <INPUT_EV_REL>;
                 input-code = <INPUT_REL_WHEEL>;
