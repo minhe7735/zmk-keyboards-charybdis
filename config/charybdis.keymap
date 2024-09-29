@@ -51,11 +51,6 @@
       layers = <NUM>;
       input-processors = <&xy_scaler 1 3>;
     };
-
-    scroll {
-      layers = <SYM>;
-      input-processors = <&xy_invert (INPUT_TRANSFORM_Y_INVERT)>, <&xy_scaler 1 3>, <&x_scaler 0 1>, <&mouse_to_wheel_mapper>;
-    };
   };
 
         /* input config for mouse move mode on default layer (DEF & MOUSE) */
