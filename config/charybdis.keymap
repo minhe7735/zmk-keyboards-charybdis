@@ -81,38 +81,11 @@
                 /* bind a behavior to auto activate MOUSE layer for &mkp */
                 bindings = <&ib_tog_layer MOUSE>;
 
-                /* align to CCW 45 degree */
-                rotate-deg = <315>;
+                /* align to CCW 90 degree */
+                rotate-deg = <270>;
                 /* NOTE 1: This settings do not compitable with y-invert and x-invert */
                 /* NOTE 2: Floating point computation requires alot of ram. */
                 /*         This feature will cuase stackover flow with CONFIG_ZMK_USB_LOGGING=y */
-        };
-  
-        /* input config for mouse scroll mode on momentary mouse scoll layer (SYM) */
-        tb0_msl_ibl {
-                compatible = "zmk,input-behavior-listener";
-                device = <&vtrackball>;
-                layers = <SYM>;
-                evt-type = <INPUT_EV_REL>;
-                
-                /* slienting x-axis with alt event code */
-                x-input-code = <INPUT_REL_MISC>;
-                y-input-code = <INPUT_REL_WHEEL>;
-
-                /* invent scrolling direction */
-                y-invert;
-
-                /* align to CCW 45 degree */
-                rotate-deg = <315>;
-                /* NOTE 1: This settings do not compitable with y-invert and x-invert */
-                /* NOTE 2: Floating point computation requires alot of ram. */
-                /*         This feature will cuase stackove flow with CONFIG_ZMK_USB_LOGGING=y */
-
-                /* bind a behavior to down scaling input value to (1/8) */
-                /* NOTE: This behavior memorizes recent pending displacement, it is different to scale-divisor. */
-                /*       The delta value is accumlated until result >= 1 after cast. */
-                /*       The scrolling will be smoother and allow precise scrolling */
-                bindings = <&ib_wheel_scaler 1 8>;
         };
 
         /* adjust cooldown waiting period for mouse key layer (MSK) after activated */
@@ -120,14 +93,6 @@
                 compatible = "zmk,input-behavior-tog-layer";
                 #binding-cells = <1>;
                 time-to-live-ms = <1000>;
-        };
-
-        /* define a resolution down scaler only for INPUT_REL_WHEEL */
-        ib_wheel_scaler: ib_wheel_scaler {
-                compatible = "zmk,input-behavior-scaler";
-                #binding-cells = <2>;
-                evt-type = <INPUT_EV_REL>;
-                input-code = <INPUT_REL_WHEEL>;
         };
 
   xy_scaler: xy_scaler {
