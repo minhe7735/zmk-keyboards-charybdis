@@ -76,10 +76,10 @@
                 x-input-code = <INPUT_REL_X>;
                 y-input-code = <INPUT_REL_Y>;
                 scale-multiplier = <1>;
-                scale-divisor = <1>;
+                scale-divisor = <3>;
 
                 /* bind a behavior to auto activate MOUSE layer for &mkp */
-                bindings = <&ib_tog_layer MOUSE>, <&xy_scaler 1 3>;
+                bindings = <&ib_tog_layer MOUSE>>;
 
                 /* align to CCW 90 degree */
                 rotate-deg = <270>;
