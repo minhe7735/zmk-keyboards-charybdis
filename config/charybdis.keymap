@@ -182,14 +182,14 @@
       key-positions = <5 9>;
       bindings = <&to GENSHIN>;
     };
-    combo_tab {
+    combo_esc {
       timeout-ms = <20>;
       key-positions = <1 2>;
       bindings = <&kp ESCAPE>;
     };
-    combo_esc {
+    combo_tab {
       timeout-ms = <20>;
-      key-positions = <3 4>;
+      key-positions = <2 3>;
       bindings = <&kp TAB>;
     };
     combo_cdel {
