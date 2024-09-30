@@ -204,7 +204,6 @@
     };
   };
   chosen {
-    zmk,matrix_transform = &five_column_transform;
     zmk,physical-layout = &charybdis_5col_layout;
   };
 
