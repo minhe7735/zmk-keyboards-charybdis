@@ -89,7 +89,7 @@
           compatible = "zmk,input-behavior-tog-layer";
           #binding-cells = <1>;
           time-to-live-ms = <1000>;
-          require-prior-idle-ms = <11500>;
+          require-prior-idle-ms = <500>;
   };
 
   xy_scaler: xy_scaler {
@@ -136,7 +136,7 @@
       tapping-term-ms = <280>;
       quick-tap-ms = <175>;
       require-prior-idle-ms = <150>;
-      hold-trigger-key-positions = <KEYS_L THUMBS>;
+      hold-trigger-key-positions = <KEYS_R THUMBS>;
       hold-trigger-on-release;
       bindings =
         <&kp>,
@@ -150,7 +150,7 @@
       tapping-term-ms = <280>;
       quick-tap-ms = <175>;
       require-prior-idle-ms = <150>;
-      hold-trigger-key-positions = <KEYS_R THUMBS>;
+      hold-trigger-key-positions = <KEYS_L THUMBS>;
       hold-trigger-on-release;
       bindings =
         <&kp>,
