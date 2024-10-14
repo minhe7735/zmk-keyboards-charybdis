@@ -8,6 +8,8 @@ manifest:
       url-base: https://github.com/badjeff
     - name: minhe7735
       url-base: https://github.com/minhe7735
+    - name: urob
+      url-base: https://github.com/urob
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
   projects:
@@ -24,5 +26,13 @@ manifest:
     - name: zmk-input-behavior-listener
       remote: minhe7735 
       revision: main
+    - name: zmk-auto-layer
+      remote: urob
+      revision: main
+      path: modules/auto-layer
+    - name: zmk-tri-state
+      remote: urob
+      revision: main
+      path: modules/tri-state
   self:
     path: config
