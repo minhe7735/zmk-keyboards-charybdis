@@ -76,8 +76,6 @@
     evt-type = <INPUT_EV_REL>;
     x-input-code = <INPUT_REL_X>;
     y-input-code = <INPUT_REL_Y>;
-    scale-multiplier = <999>;
-    scale-divisor = <1000>;
 
     /* bind a behavior to auto activate MOUSE layer for &mkp */
     bindings = <&ib_tog_layer MOUSE>;
