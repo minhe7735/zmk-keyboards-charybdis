@@ -207,12 +207,12 @@
       timeout-ms = <20>;
       key-positions = <20 24>;
       bindings = <&sys_reset>;
-    }
+    };
     combo_reset_right {
       timeout-ms = <20>;
       key-positions = <25 29>;
       bindings = <&sys_reset>;
-    }
+    };
   };
   chosen {
     zmk,physical-layout = &charybdis_5col_layout;
