@@ -176,7 +176,7 @@
     combo_fn {
       timeout-ms = <20>;
       key-positions = <27 28>;
-      bindings = <&to FN>;
+      bindings = <&sl FN>;
     };
     combo_genshin {
       timeout-ms = <20>;
@@ -203,6 +203,16 @@
       key-positions = <0 4>;
       bindings = <&studio_unlock>;
     };
+    combo_reset_left {
+      timeout-ms = <20>;
+      key-positions = <20 24>;
+      bindings = <&sys_reset>;
+    }
+    combo_reset_right {
+      timeout-ms = <20>;
+      key-positions = <25 29>;
+      bindings = <&sys_reset>;
+    }
   };
   chosen {
     zmk,physical-layout = &charybdis_5col_layout;
